@@ -27,7 +27,7 @@ int addNode(int data){
 }
 // Add node to head 
 int addNodeHead(int data){
-    if (head == 0)
+    if (head == NULL)
     {
         struct node* new = (struct node*)malloc(sizeof(struct node*));
         new->data = data;
@@ -99,5 +99,6 @@ int main(){
     print();
     delete(15);
     print();
+
 
 }
