@@ -1,77 +1,28 @@
 #include<stdio.h>
 #include<stdlib.h>
-struct stack
+struct circularList
 {
     int data;
-    struct stack *next;
+    struct circularList *next;
 };
-struct stack* top = NULL;
+ struct circularList *tail = NULL;
+ struct circularList *head = NULL;
 
-void push(int data){
-    struct stack *new =(struct stack*)malloc(sizeof(struct stack));
-    new->data = data;
-    new->next = NULL;
-    if (top != NULL)
+int create(int data){
+    struct circularList *new = (struct circularList*)malloc(sizeof(struct circularList*));
+    if (head == NULL)
     {
-        new->next = top;
-    }
-     top = new;
-    
-}
-
-void pop(){
-    if (top == NULL)
-    {
-        printf("stack bos");
-    }else{
-        struct stack *temp = top;
-        top = top->next; 
-        free(temp);
+        new->data = data;
+        new->next = tail;
+        head = tail = new;
+    }else{ 
+        new->data = data;
+        new->next = head;
+        tail = new;
     }
     
-}
-int peek(){
-    return top->data;
-}
 
-void yazdir(){
-    struct stack* q = top;
-    while (q != NULL)
-    {
-        printf("%d<=",q->data);
-        q = q->next;
-    }
-    
 }
-
 int main(){
-    int secim;
-    while (1)
-    {
-        printf("\n1-push");
-        printf("\n2-pop");
-        printf("\n3-peek");
-        printf("\n yapmak istediğiniz islemi seciniz");
-        scanf("%d",&secim);
-
-        switch (secim)
-        {
-        case 1:
-           printf("\ngirmek istediginiz sayi?");
-           scanf("%d",&secim);
-           push(secim);
-           yazdir();
-            break;
-        case 2:
-            pop();
-            yazdir();
-            break;
-        case 3:
-            printf("top elemani =>",peek());
-            break;
-        }
-
-    }
-    
-     
+    create(1);
 }

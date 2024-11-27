@@ -16,7 +16,7 @@ void push(int data){
         new->next = top;
     }
      top = new;
-    
+
 }
 
 void pop(){
@@ -67,7 +67,7 @@ int main(){
             yazdir();
             break;
         case 3:
-            printf("top elemani =>",peek());
+            printf("top elemani =>%d",peek());
             break;
         }
 

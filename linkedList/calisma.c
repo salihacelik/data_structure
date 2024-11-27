@@ -61,6 +61,17 @@ void count(){
      printf("eleman sayisi = %d\n",counter);
      
 }
+
+int delete(int data){
+    struct calisma *new = head;
+    if (new->data != data)
+    {
+        new = new->next;
+    }
+    free(new);
+
+    
+}
 int main(){
     addData(5);
     addData(6);
